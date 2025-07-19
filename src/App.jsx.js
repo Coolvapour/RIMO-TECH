@@ -64,7 +64,7 @@ export default function App() {
   const primaryBorderColorClass = currentTheme.borderPrimaryDark;
   const primaryHoverBgClass = currentTheme.hoverBgSecondaryDark;
   const primaryFocusRingClass = currentTheme.focusRingPrimaryLight;
-  const primaryLightBgClass = currentTheme.bgPrimaryLight; // This is now a border color, not bg
+  const primaryLightBgClass = currentTheme.borderPrimaryLight; // This is now a border color, not bg
   const primaryLightBorderClass = currentTheme.borderPrimaryLight;
   const primaryDarkTextColorClass = currentTheme.textPrimaryDark; // For headings and strong accents
   const primaryMediumBorderClass = currentTheme.borderPrimaryMedium;
@@ -87,15 +87,13 @@ export default function App() {
         {/* Company Logo and Name */}
         <div className="flex items-center space-x-2">
           <button onClick={() => setCurrentPage('home')} className="focus:outline-none">
-            {/* Rimo Technologies SVG Logo */}
-            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={`${primaryTextColorClass} transition-colors duration-300`}>
-              {/* Stylized 'R' with tech/network elements */}
-              <path d="M25 20 L25 80 L50 80 C70 80, 70 50, 50 50 L25 50" stroke="currentColor" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="70" cy="30" r="10" fill="currentColor"/>
-              <circle cx="70" cy="70" r="10" fill="currentColor"/>
-              <line x1="50" y1="50" x2="65" y2="30" stroke="currentColor" strokeWidth="5" strokeLinecap="round"/>
-              <line x1="50" y1="50" x2="65" y2="70" stroke="currentColor" strokeWidth="5" strokeLinecap="round"/>
-            </svg>
+            {/* Rimo Technologies Image Logo */}
+            <img
+              src="https://sdmntprsouthcentralus.oaiusercontent.com/files/f3d02aa587ab8a7_00000000-1748-61f7-a6e3-e59985bda2cd/drvs/thumbnail/raw?se=2025-07-19T19%3A26%3A54Z&sp=r&sv=2024-08-04&sr=b&scid=67eb7ba6-b981-57fb-878e-41a15f4aaa46&skoid=b0fd38cc-3d33-418f-920e-4798de4acdd1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-19T16%3A40%3A55Z&ske=2025-07-20T16%3A40%3A55Z&sks=b&skv=2024-08-04&sig=BYZFMWUE2q6FSb1PPcfqPLrPwBAdhFGHmpuHHEqAg9E%3D"
+              alt="Rimo Technologies Logo"
+              className="w-10 h-10 object-contain transition-transform duration-300"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/40x40/ADD8E6/000000?text=Logo"; }}
+            />
           </button>
           <button onClick={() => setCurrentPage('home')} className={`text-2xl font-extrabold ${currentTheme.headingColor} ${currentTheme.navHoverText} focus:outline-none transition-colors duration-300`}>
             Rimo Technologies
@@ -117,10 +115,10 @@ export default function App() {
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.841 18.841a.75.75 0 011.06-1.06l1.591 1.59a.75.75 0 11-1.06 1.06l-1.59-1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM4.22 18.841a.75.75 0 011.06 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.591-1.59zM18.75 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg> // Sun icon
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.841 18.841a.75.75 0 011.06-1.06l1.591 1.59a.75.75 0 11-1.06 1.06l-1.59-1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM4.22 18.841a.75.75 0 011.06 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.591-1.59zM18.75 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg>
               ) : (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9.5 1.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V2a.75.75 0 01.75-.75zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM16.121 17.621a.75.75 0 011.061 0l1.591 1.591a.75.75 0 01-1.061 1.061l-1.591-1.591a.75.75 0 010-1.061zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM7.879 17.621a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 01-1.061-1.061l1.591-1.591a.75.75 0 011.061 0zM18 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg> // Moon icon
-            )}
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9.5 1.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V2a.75.75 0 01.75-.75zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM16.121 17.621a.75.75 0 011.061 0l1.591 1.591a.75.75 0 01-1.061 1.061l-1.591-1.591a.75.75 0 010-1.061zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM7.879 17.621a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 01-1.061-1.061l1.591-1.591a.75.75 0 011.061 0zM18 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg>
+              )}
             </button>
           </li>
         </ul>
@@ -134,9 +132,9 @@ export default function App() {
             aria-label="Toggle theme"
           >
             {theme === 'light' ? (
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.841 18.841a.75.75 0 011.06-1.06l1.591 1.59a.75.75 0 11-1.06 1.06l-1.59-1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM4.22 18.841a.75.75 0 011.06 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.591-1.59zM18.75 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg> // Sun icon
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.841 18.841a.75.75 0 011.06-1.06l1.591 1.59a.75.75 0 11-1.06 1.06l-1.59-1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM4.22 18.841a.75.75 0 011.06 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.591-1.59zM18.75 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg>
             ) : (
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9.5 1.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V2a.75.75 0 01.75-.75zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM16.121 17.621a.75.75 0 011.061 0l1.591 1.591a.75.75 0 01-1.061 1.061l-1.591-1.591a.75.75 0 010-1.061zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM7.879 17.621a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 01-1.061-1.061l1.591-1.591a.75.75 0 011.061 0zM18 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg> // Moon icon
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9.5 1.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V2a.75.75 0 01.75-.75zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM16.121 17.621a.75.75 0 011.061 0l1.591 1.591a.75.75 0 01-1.061 1.061l-1.591-1.591a.75.75 0 010-1.061zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18a.75.75 0 01.75-.75zM7.879 17.621a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 01-1.061-1.061l1.591-1.591a.75.75 0 011.061 0zM18 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5h-2.25a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01-.75-.75H2.25a.75.75 0 010 1.5h2.25a.75.75 0 01.75-.75zM6.652 5.25a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06l-1.591-1.59a.75.75 0 010-1.06z"></path></svg>
             )}
           </button>
           <button
@@ -309,7 +307,7 @@ export default function App() {
         let chatHistory = [];
         chatHistory.push({ role: "user", parts: [{ text: prompt }] });
         const payload = { contents: chatHistory };
-        const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+        const apiKey = "AIzaSyAQiBJok1sb0ZHNPqjeIsnyZa-2gkqWdLI"; // Gemini API Key
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         console.log("Calling Gemini API with prompt:", prompt);
@@ -393,6 +391,28 @@ export default function App() {
             shadowHover={currentTheme.shadowHover}
           />
           <ServiceCard
+            title="Freelance Services"
+            description="Need a dedicated expert for your short-term projects or specialized tasks? We offer flexible freelance services, providing skilled professionals to seamlessly integrate with your team and deliver high-quality results on demand."
+            icon="🤝"
+            primaryTextColorClass={primaryTextColorClass}
+            cardBg={currentTheme.cardBg}
+            cardBorder={currentTheme.cardBorder}
+            textColor={currentTheme.textColor}
+            headingColor={currentTheme.headingColor}
+            shadowHover={currentTheme.shadowHover}
+          />
+          <ServiceCard
+            title="Digital Application & Compliance"
+            description="Navigating complex online applications like KUCCPS, KRA returns, and other essential filings can be daunting. We provide expert assistance to ensure your applications are accurately completed, submitted on time, and fully compliant with all requirements."
+            icon="📄"
+            primaryTextColorClass={primaryTextColorClass}
+            cardBg={currentTheme.cardBg}
+            cardBorder={currentTheme.cardBorder}
+            textColor={currentTheme.textColor}
+            headingColor={currentTheme.headingColor}
+            shadowHover={currentTheme.shadowHover}
+          />
+          <ServiceCard
             title="Software Analysis & Design"
             description="Our experts provide thorough planning, detailed requirements gathering, and robust architecture design to ensure your software project is built on a solid foundation for success."
             icon="📐"
@@ -428,7 +448,7 @@ export default function App() {
         </div>
 
         {/* Gemini API Integration: Service Idea Generator */}
-        <div className={`mt-16 p-8 ${currentTheme.bgPrimaryLight} rounded-lg shadow-inner border ${currentTheme.borderPrimaryLight} transition-colors duration-500`}>
+        <div className={`mt-16 p-8 ${currentTheme.cardBg} rounded-lg shadow-inner border ${primaryLightBorderClass} transition-colors duration-500`}>
           <h2 className={`${primaryDarkTextColorClass} text-3xl font-bold mb-6 text-center`}>✨ Generate a New Service Idea ✨</h2>
           <p className={`text-lg ${currentTheme.textColor} text-center mb-6`}>
             Curious about what innovative service Rimo Technologies could offer next? Enter an industry or keyword below and let our AI suggest a new concept!
@@ -475,73 +495,161 @@ export default function App() {
   );
 
   // Portfolio Page Component
-  const Portfolio = () => (
-    <section key="portfolio" className={`min-h-[calc(100vh-180px)] p-8 rounded-lg ${currentTheme.shadow} animate-fade-in bg-gradient-to-r ${currentTheme.bgPrimary50} ${currentTheme.bgSecondary50} transition-all duration-500`}>
-      <h1 className={`text-4xl font-bold ${currentTheme.headingColor} mb-8 border-b-4 ${primaryBorderColorClass} pb-2 transition-colors duration-500`}>Our Work: Case Studies</h1>
-      <p className={`text-lg ${currentTheme.textColor} leading-relaxed mb-10 animate-fade-in delay-100`}>
-        We take immense pride in the innovative projects we’ve delivered, transforming complex challenges into elegant, functional solutions. Here are a few examples that highlight our capabilities and commitment to excellence.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <PortfolioCard
-          title="Personal Portfolio Website"
-          description="Designed and developed a sleek, fast-loading personal portfolio website for a creative professional, focusing on intuitive navigation and a visually engaging showcase of their work."
-          imageUrl="https://placehold.co/600x400/D1E7DD/000000?text=Portfolio+Site"
-          tags={['Web Development', 'UI/UX', 'React']}
-          projectUrl="#" // Placeholder for personal portfolio
-          primaryTextColorClass={primaryTextColorClass}
-          cardBg={currentTheme.cardBg}
-          cardBorder={currentTheme.cardBorder}
-          textColor={currentTheme.textColor}
-          headingColor={currentTheme.headingColor}
-          primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
-          shadowHover={currentTheme.shadowHover}
-        />
-        <PortfolioCard
-          title="Pioneer Elite Academy Website"
-          description="A modern educational platform for Pioneer Elite Academy, showcasing courses, faculty, and admissions information with a user-friendly interface."
-          imageUrl="https://placehold.co/600x400/D1E7DD/000000?text=Pioneer+Academy"
-          tags={['Education', 'Web Development', 'Responsive Design']}
-          projectUrl="https://pioneereliteacademy.vercel.app"
-          primaryTextColorClass={primaryTextColorClass}
-          cardBg={currentTheme.cardBg}
-          cardBorder={currentTheme.cardBorder}
-          textColor={currentTheme.textColor}
-          headingColor={currentTheme.headingColor}
-          primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
-          shadowHover={currentTheme.shadowHover}
-        />
-        <PortfolioCard
-          title="Limros Academy Portal"
-          description="An intuitive online portal for Limros Academy, facilitating student registration, course access, and administrative management."
-          imageUrl="https://placehold.co/600x400/F8D7DA/000000?text=Limros+Academy"
-          tags={['Education', 'Web Application', 'Student Management']}
-          projectUrl="https://limrosacademy.vercel.app"
-          primaryTextColorClass={primaryTextColorClass}
-          cardBg={currentTheme.cardBg}
-          cardBorder={currentTheme.cardBorder}
-          textColor={currentTheme.textColor}
-          headingColor={currentTheme.headingColor}
-          primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
-          shadowHover={currentTheme.shadowHover}
-        />
-        <PortfolioCard
-          title="Data Automation Script"
-          description="Developed a robust Python-based automation bot that efficiently scrapes data from multiple online sources, processes it, and generates automated reports, significantly reducing manual effort and improving data accuracy."
-          imageUrl="https://placehold.co/600x400/CCE5FF/000000?text=Automation+Script"
-          tags={['Automation', 'Python', 'Data Processing']}
-          projectUrl="#" // Placeholder for automation script
-          primaryTextColorClass={primaryTextColorClass}
-          cardBg={currentTheme.cardBg}
-          cardBorder={currentTheme.cardBorder}
-          textColor={currentTheme.textColor}
-          headingColor={currentTheme.headingColor}
-          primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
-          shadowHover={currentTheme.shadowHover}
-        />
-      </div>
-      <p className={`mt-12 italic text-center ${currentTheme.textColor} text-lg animate-fade-in delay-200`}>More compelling case studies coming soon as we continue to innovate and deliver!</p>
-    </section>
-  );
+  const Portfolio = () => {
+    const [projectInput, setProjectInput] = useState('');
+    const [generatedProjectDescription, setGeneratedProjectDescription] = useState('');
+    const [loadingDescription, setLoadingDescription] = useState(false);
+    const [descriptionError, setDescriptionError] = useState('');
+
+    const generateProjectDescription = async () => {
+      setLoadingDescription(true);
+      setGeneratedProjectDescription('');
+      setDescriptionError('');
+
+      const prompt = `Generate a professional and concise project description for a software development portfolio. The project is: "${projectInput}". Focus on the problem solved, the technology used (if implied), and the value delivered. Keep it under 100 words.`;
+
+      try {
+        let chatHistory = [];
+        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+        const payload = { contents: chatHistory };
+        const apiKey = "AIzaSyAQiBJok1sb0ZHNPqjeIsnyZa-2gkqWdLI"; // Gemini API Key
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        console.log("Calling Gemini API for project description with prompt:", prompt);
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          const errorBody = await response.text();
+          throw new Error(`API call failed with status: ${response.status}, body: ${errorBody}`);
+        }
+
+        const result = await response.json();
+        console.log("Gemini API raw response for project description:", result);
+
+        if (result.candidates && result.candidates.length > 0 &&
+            result.candidates[0].content && result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0) {
+          const text = result.candidates[0].content.parts[0].text;
+          setGeneratedProjectDescription(text);
+        } else {
+          setDescriptionError('Failed to generate project description. Unexpected API response structure.');
+          console.error('Gemini API response structure unexpected for project description:', result);
+        }
+      } catch (err) {
+        setDescriptionError(`An error occurred while generating description: ${err.message}. Please try again later.`);
+        console.error('Error calling Gemini API for project description:', err);
+      } finally {
+        setLoadingDescription(false);
+      }
+    };
+
+    return (
+      <section key="portfolio" className={`min-h-[calc(100vh-180px)] p-8 rounded-lg ${currentTheme.shadow} animate-fade-in bg-gradient-to-r ${currentTheme.bgPrimary50} ${currentTheme.bgSecondary50} transition-all duration-500`}>
+        <h1 className={`text-4xl font-bold ${currentTheme.headingColor} mb-8 border-b-4 ${primaryBorderColorClass} pb-2 transition-colors duration-500`}>Our Work: Case Studies</h1>
+        <p className={`text-lg ${currentTheme.textColor} leading-relaxed mb-10 animate-fade-in delay-100`}>
+          We take immense pride in the innovative projects we’ve delivered, transforming complex challenges into elegant, functional solutions. Here are a few examples that highlight our capabilities and commitment to excellence.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <PortfolioCard
+            title="Personal Portfolio Website"
+            description="Designed and developed a sleek, fast-loading personal portfolio website for a creative professional, focusing on intuitive navigation and a visually engaging showcase of their work."
+            imageUrl="https://placehold.co/600x400/D1E7DD/000000?text=Portfolio+Site"
+            tags={['Web Development', 'UI/UX', 'React']}
+            projectUrl="#" // Placeholder for personal portfolio
+            primaryTextColorClass={primaryTextColorClass}
+            cardBg={currentTheme.cardBg}
+            cardBorder={currentTheme.cardBorder}
+            textColor={currentTheme.textColor}
+            headingColor={currentTheme.headingColor}
+            primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
+            shadowHover={currentTheme.shadowHover}
+          />
+          <PortfolioCard
+            title="Pioneer Elite Academy Website"
+            description="A modern educational platform for Pioneer Elite Academy, showcasing courses, faculty, and admissions information with a user-friendly interface."
+            imageUrl="https://placehold.co/600x400/D1E7DD/000000?text=Pioneer+Academy"
+            tags={['Education', 'Web Development', 'Responsive Design']}
+            projectUrl="https://pioneereliteacademy.vercel.app"
+            primaryTextColorClass={primaryTextColorClass}
+            cardBg={currentTheme.cardBg}
+            cardBorder={currentTheme.cardBorder}
+            textColor={currentTheme.textColor}
+            headingColor={currentTheme.headingColor}
+            primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
+            shadowHover={currentTheme.shadowHover}
+          />
+          <PortfolioCard
+            title="Limros Academy Portal"
+            description="An intuitive online portal for Limros Academy, facilitating student registration, course access, and administrative management."
+            imageUrl="https://placehold.co/600x400/F8D7DA/000000?text=Limros+Academy"
+            tags={['Education', 'Web Application', 'Student Management']}
+            projectUrl="https://limrosacademy.vercel.app"
+            primaryTextColorClass={primaryTextColorClass}
+            cardBg={currentTheme.cardBg}
+            cardBorder={currentTheme.cardBorder}
+            textColor={currentTheme.textColor}
+            headingColor={currentTheme.headingColor}
+            primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
+            shadowHover={currentTheme.shadowHover}
+          />
+          <PortfolioCard
+            title="Data Automation Script"
+            description="Developed a robust Python-based automation bot that efficiently scrapes data from multiple online sources, processes it, and generates automated reports, significantly reducing manual effort and improving data accuracy."
+            imageUrl="https://placehold.co/600x400/CCE5FF/000000?text=Automation+Script"
+            tags={['Automation', 'Python', 'Data Processing']}
+            projectUrl="#" // Placeholder for automation script
+            primaryTextColorClass={primaryTextColorClass}
+            cardBg={currentTheme.cardBg}
+            cardBorder={currentTheme.cardBorder}
+            textColor={currentTheme.textColor}
+            headingColor={currentTheme.headingColor}
+            primaryLightBgClass={currentTheme.bgPrimaryLight} // For tag background
+            shadowHover={currentTheme.shadowHover}
+          />
+        </div>
+        <p className={`mt-12 italic text-center ${currentTheme.textColor} text-lg animate-fade-in delay-200`}>More compelling case studies coming soon as we continue to innovate and deliver!</p>
+
+        {/* Gemini API Integration: Project Description Generator */}
+        <div className={`mt-16 p-8 ${currentTheme.cardBg} rounded-lg shadow-inner border ${primaryLightBorderClass} transition-colors duration-500`}>
+          <h2 className={`${primaryDarkTextColorClass} text-3xl font-bold mb-6 text-center`}>✨ Generate Project Description ✨</h2>
+          <p className={`text-lg ${currentTheme.textColor} text-center mb-6`}>
+            Need help describing your project for a portfolio? Enter a few keywords or a brief summary, and our AI will generate a professional description.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+            <input
+              type="text"
+              placeholder="e.g., E-commerce app with React and Node.js, AI chatbot for customer service"
+              value={projectInput}
+              onChange={(e) => setProjectInput(e.target.value)}
+              className={`flex-grow p-3 border ${primaryMediumBorderClass} rounded-lg focus:ring-2 ${primaryFocusRingClass} focus:border-transparent transition-all duration-200 shadow-sm ${currentTheme.cardBg} ${currentTheme.textColor}`}
+            />
+            <button
+              onClick={generateProjectDescription}
+              disabled={loadingDescription}
+              className={`px-6 py-3 ${primaryColorClass} text-white font-semibold rounded-lg ${currentTheme.shadow} ${primaryHoverBgClass} transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 ${primaryFocusRingClass} disabled:opacity-50 disabled:cursor-not-allowed`}
+            >
+              {loadingDescription ? 'Generating...' : 'Generate Description'}
+            </button>
+          </div>
+
+          {descriptionError && (
+            <p className="mt-6 text-center text-red-600 text-md animate-fade-in">{descriptionError}</p>
+          )}
+
+          {generatedProjectDescription && (
+            <div className={`mt-8 p-6 ${currentTheme.cardBg} border ${primaryMediumBorderClass} rounded-lg ${currentTheme.shadow} animate-fade-in`}>
+              <h3 className={`${primaryDarkTextColorClass} text-2xl font-semibold mb-3`}>Generated Project Description:</h3>
+              <p className={`text-lg ${currentTheme.textColor} leading-relaxed`}>{generatedProjectDescription}</p>
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  };
 
   // Reusable Portfolio Card Component
   const PortfolioCard = ({ title, description, imageUrl, tags, projectUrl, primaryTextColorClass, cardBg, cardBorder, textColor, headingColor, primaryLightBgClass, shadowHover }) => (
