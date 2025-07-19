@@ -89,7 +89,7 @@ export default function App() {
           <button onClick={() => setCurrentPage('home')} className="focus:outline-none">
             {/* Rimo Technologies Image Logo */}
             <img
-              src="https://sdmntprsouthcentralus.oaiusercontent.com/files/f3d02aa587ab8a7_00000000-1748-61f7-a6e3-e59985bda2cd/drvs/thumbnail/raw?se=2025-07-19T19%3A26%3A54Z&sp=r&sv=2024-08-04&sr=b&scid=67eb7ba6-b981-57fb-878e-41a15f4aaa46&skoid=b0fd38cc-3d33-418f-920e-4798de4acdd1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-19T16%3A40%3A55Z&ske=2025-07-20T16%3A40%3A55Z&sks=b&skv=2024-08-04&sig=BYZFMWUE2q6FSb1PPcfqPLrPwBAdhFGHmpuHHEqAg9E%3D"
+              src="/images/logo192.png"
               alt="Rimo Technologies Logo"
               className="w-10 h-10 object-contain transition-transform duration-300"
               onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/40x40/ADD8E6/000000?text=Logo"; }}
@@ -252,7 +252,7 @@ export default function App() {
         <h2 className={`text-3xl font-semibold ${currentTheme.headingColor} mb-4`}>Founder’s Note</h2>
         <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
           <img
-            src="https://drive.google.com/file/d/1XPdRMltQDNfQYd8Iqf7Bl-ENowY6NR_Z/view?usp=drive_link"
+            src="/images/founder.jpg"
             alt="Moses, Founder of Rimo Technologies"
             className={`w-32 h-32 rounded-full object-cover ${currentTheme.shadow} border-4 ${primaryMediumBorderClass} transition-colors duration-500`}
             onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/150x150/ADD8E6/000000?text=Founder"; }}
